@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowForge - Advanced Rap Lyric Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 2L2 9V23L16 30L30 23V9L16 2Z" stroke="url(#grad1)" stroke-width="2" fill="none"/>
+                    <path d="M16 10L10 13V19L16 22L22 19V13L16 10Z" fill="url(#grad1)"/>
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">FlowForge</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-view="write">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    <span>Write</span>
+                </a>
+                <a href="#" class="nav-item" data-view="rhyme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v12M6 12h12"/>
+                    </svg>
+                    <span>Rhyme Lab</span>
+                </a>
+                <a href="#" class="nav-item" data-view="punchlines">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    <span>Punchline Gen</span>
+                </a>
+                <a href="#" class="nav-item" data-view="flow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    <span>Flow Analyzer</span>
+                </a>
+                <a href="#" class="nav-item" data-view="syllable">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M9 9h6v6H9z"/>
+                    </svg>
+                    <span>Syllable Counter</span>
+                </a>
+                <a href="#" class="nav-item" data-view="wordplay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 7h16M4 12h16M4 17h16"/>
+                    </svg>
+                    <span>Wordplay Tools</span>
+                </a>
+                <a href="#" class="nav-item" data-view="library">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                    <span>My Library</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">MC</div>
+                    <div class="user-info">
+                        <div class="user-name">MC User</div>
+                        <div class="user-plan">Pro Plan</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="header-left">
+                    <h1 class="page-title">Write</h1>
+                    <div class="breadcrumb">Complex Internal Rhymes • Slant Rhymes • Phonetic Flow</div>
+                </div>
+                <div class="header-right">
+                    <button class="btn-icon" title="Settings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m-6-6h6m6 0h-6"/>
+                        </svg>
+                    </button>
+                    <button class="btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                            <polyline points="17 21 17 13 7 13 7 21"/>
+                        </svg>
+                        Save Project
+                    </button>
+                </div>
+            </header>
+
+            <!-- Write View (Default) -->
+            <div class="view-container" id="write-view">
+                <div class="editor-layout">
+                    <div class="editor-main">
+                        <div class="editor-toolbar">
+                            <div class="toolbar-group">
+                                <button class="toolbar-btn active" data-mode="assisted">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                    </svg>
+                                    AI Assist
+                                </button>
+                                <button class="toolbar-btn" data-mode="manual">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                                    </svg>
+                                    Manual
+                                </button>
+                            </div>
+                            <div class="toolbar-divider"></div>
+                            <div class="toolbar-group">
+                                <select class="toolbar-select" id="rhyme-scheme-select">
+                                    <option value="internal">Complex Internal</option>
+                                    <option value="slant">Slant End Rhymes</option>
+                                    <option value="assonance">Assonance Focus</option>
+                                    <option value="consonance">Consonance Focus</option>
+                                    <option value="multi">Multi-Syllabic</option>
+                                    <option value="phonetic">Phonetic Drift</option>
+                                </select>
+                                <select class="toolbar-select" id="complexity-select">
+                                    <option value="aesop">Aesop Rock Level</option>
+                                    <option value="palmer">Palmer Squares</option>
+                                    <option value="mf-doom">MF DOOM</option>
+                                    <option value="eminem">Eminem Complex</option>
+                                    <option value="custom">Custom Mix</option>
+                                </select>
+                            </div>
+                            <div class="toolbar-divider"></div>
+                            <div class="toolbar-group">
+                                <button class="toolbar-btn" id="analyze-flow">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                                    </svg>
+                                    Analyze Flow
+                                </button>
+                                <button class="toolbar-btn" id="check-cliches">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                        <line x1="12" y1="9" x2="12" y2="13"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                    Cliché Check
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="editor-wrapper">
+                            <div class="line-numbers" id="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div>
+                            <textarea class="lyric-editor" id="lyric-editor" placeholder="Start writing your bars... AI will suggest complex internal rhymes, slant rhymes, and phonetic variations as you type.
+
+Try typing a line and press Ctrl+Space for intelligent suggestions that avoid clichés.
+
+Example prompt: 'Write a bar about success with internal rhymes'"></textarea>
+                        </div>
+
+                        <div class="editor-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Lines:</span>
+                                <span class="stat-value" id="line-count">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Words:</span>
+                                <span class="stat-value" id="word-count">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Syllables:</span>
+                                <span class="stat-value" id="syllable-count">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rhyme Density:</span>
+                                <span class="stat-value" id="rhyme-density">0%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Complexity:</span>
+                                <span class="stat-value" id="complexity-score">—</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-sidebar">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3>AI Suggestions</h3>
+                                <button class="btn-icon-sm" id="refresh-suggestions">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 4 23 10 17 10"/>
+                                        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="panel-content">
+                                <div class="suggestion-item">
+                                    <div class="suggestion-type">Internal Rhyme</div>
+                                    <div class="suggestion-text">Hover over a word in your lyrics to see phonetically similar alternatives with slant rhymes</div>
+                                </div>
+                                <div class="suggestion-prompt">
+                                    <input type="text" class="suggestion-input" placeholder="Ask for a line about..." id="suggestion-prompt">
+                                    <button class="btn-secondary-sm" id="generate-suggestion">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3>Rhyme Pattern</h3>
+                            </div>
+                            <div class="panel-content">
+                                <div class="rhyme-visualization" id="rhyme-viz">
+                                    <div class="viz-placeholder">
+                                        Start writing to see rhyme pattern analysis
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3>Phonetic Breakdown</h3>
+                            </div>
+                            <div class="panel-content">
+                                <div class="phonetic-display" id="phonetic-display">
+                                    <div class="phonetic-placeholder">
+                                        Select a word to see its phonetic structure and find slant rhymes
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3>Cliché Alert</h3>
+                            </div>
+                            <div class="panel-content">
+                                <div class="cliche-status" id="cliche-status">
+                                    <div class="status-badge status-success">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        No clichés detected
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rhyme Lab View -->
+            <div class="view-container hidden" id="rhyme-view">
+                <div class="rhyme-lab-layout">
+                    <div class="rhyme-search-section">
+                        <h2>Advanced Rhyme Laboratory</h2>
+                        <p class="section-description">Find complex internal rhymes, slant rhymes, assonance, and consonance matches</p>
+                        
+                        <div class="search-container">
+                            <input type="text" class="search-input-large" id="rhyme-search" placeholder="Enter a word or phrase...">
+                            <button class="btn-primary-large" id="find-rhymes">Find Rhymes</button>
+                        </div>
+
+                        <div class="rhyme-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="opt-internal" checked>
+                                <span>Internal Rhymes</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="opt-slant" checked>
+                                <span>Slant Rhymes</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="opt-assonance" checked>
+                                <span>Assonance</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="opt-consonance" checked>
+                                <span>Consonance</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="opt-multisyllabic" checked>
+                                <span>Multi-syllabic</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="opt-phonetic">
+                                <span>Phonetic Drift</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="rhyme-results-grid">
+                        <div class="rhyme-category">
+                            <h3>Perfect Slant Rhymes</h3>
+                            <div class="rhyme-list" id="slant-rhymes">
+                                <div class="empty-state">Enter a word to find rhymes</div>
+                            </div>
+                        </div>
+                        <div class="rhyme-category">
+                            <h3>Internal Matches</h3>
+                            <div class="rhyme-list" id="internal-rhymes">
+                                <div class="empty-state">Enter a word to find rhymes</div>
+                            </div>
+                        </div>
+                        <div class="rhyme-category">
+                            <h3>Assonance</h3>
+                            <div class="rhyme-list" id="assonance-matches">
+                                <div class="empty-state">Enter a word to find rhymes</div>
+                            </div>
+                        </div>
+                        <div class="rhyme-category">
+                            <h3>Consonance</h3>
+                            <div class="rhyme-list" id="consonance-matches">
+                                <div class="empty-state">Enter a word to find rhymes</div>
+                            </div>
+                        </div>
+                        <div class="rhyme-category">
+                            <h3>Phonetic Variations</h3>
+                            <div class="rhyme-list" id="phonetic-variations">
+                                <div class="empty-state">Enter a word to find rhymes</div>
+                            </div>
+                        </div>
+                        <div class="rhyme-category">
+                            <h3>Multi-syllabic</h3>
+                            <div class="rhyme-list" id="multisyllabic-rhymes">
+                                <div class="empty-state">Enter a word to find rhymes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Punchline Generator View -->
+            <div class="view-container hidden" id="punchlines-view">
+                <div class="punchline-layout">
+                    <h2>Intelligent Punchline Generator</h2>
+                    <p class="section-description">Generate witty, clever punchlines and diss lines without clichés</p>
+
+                    <div class="punchline-form">
+                        <div class="form-group">
+                            <label>Topic/Subject</label>
+                            <input type="text" class="form-input" id="punchline-topic" placeholder="What's the punchline about?">
+                        </div>
+                        <div class="form-group">
+                            <label>Setup Line (optional)</label>
+                            <input type="text" class="form-input" id="punchline-setup" placeholder="Enter the setup line...">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Style</label>
+                                <select class="form-select" id="punchline-style">
+                                    <option value="witty">Witty/Clever</option>
+                                    <option value="aggressive">Aggressive Diss</option>
+                                    <option value="wordplay">Wordplay Heavy</option>
+                                    <option value="metaphor">Metaphorical</option>
+                                    <option value="double">Double Entendre</option>
+                                    <option value="intellectual">Intellectual</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Complexity</label>
+                                <select class="form-select" id="punchline-complexity">
+                                    <option value="high">High (Aesop Rock)</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="accessible">Accessible</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-primary-large" id="generate-punchline">Generate Punchlines</button>
+                    </div>
+
+                    <div class="punchline-results" id="punchline-results">
+                        <div class="empty-state-large">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                            <p>Generate punchlines to see results</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flow Analyzer View -->
+            <div class="view-container hidden" id="flow-view">
+                <div class="flow-analyzer-layout">
+                    <h2>Flow Pattern Analyzer</h2>
+                    <p class="section-description">Analyze syllable patterns, stress, and rhythmic flow</p>
+
+                    <div class="flow-input-section">
+                        <textarea class="flow-input" id="flow-input" placeholder="Paste your lyrics here to analyze flow patterns..."></textarea>
+                        <button class="btn-primary-large" id="analyze-flow-btn">Analyze Flow</button>
+                    </div>
+
+                    <div class="flow-results" id="flow-results">
+                        <div class="flow-metrics">
+                            <div class="metric-card">
+                                <h4>Syllable Pattern</h4>
+                                <div class="metric-value" id="syllable-pattern">—</div>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Flow Consistency</h4>
+                                <div class="metric-value" id="flow-consistency">—</div>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Stress Pattern</h4>
+                                <div class="metric-value" id="stress-pattern">—</div>
+                            </div>
+                        </div>
+                        <div class="flow-visualization" id="flow-visualization">
+                            <div class="empty-state">Paste lyrics and analyze to see flow visualization</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Syllable Counter View -->
+            <div class="view-container hidden" id="syllable-view">
+                <div class="syllable-counter-layout">
+                    <h2>Syllable Counter & Stress Analyzer</h2>
+                    <p class="section-description">Count syllables and analyze stress patterns in real-time</p>
+
+                    <div class="syllable-input-section">
+                        <textarea class="syllable-input" id="syllable-input" placeholder="Enter your lyrics..."></textarea>
+                    </div>
+
+                    <div class="syllable-breakdown" id="syllable-breakdown">
+                        <div class="empty-state">Type lyrics to see syllable breakdown</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wordplay Tools View -->
+            <div class="view-container hidden" id="wordplay-view">
+                <div class="wordplay-layout">
+                    <h2>Advanced Wordplay Tools</h2>
+                    <p class="section-description">Explore homonyms, double entendres, and creative word combinations</p>
+
+                    <div class="wordplay-grid">
+                        <div class="tool-card">
+                            <h3>Double Entendre Finder</h3>
+                            <input type="text" class="form-input" id="entendre-input" placeholder="Enter a word or phrase...">
+                            <button class="btn-secondary" id="find-entendre">Find Double Meanings</button>
+                            <div class="tool-results" id="entendre-results"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>Homophone Explorer</h3>
+                            <input type="text" class="form-input" id="homophone-input" placeholder="Enter a word...">
+                            <button class="btn-secondary" id="find-homophones">Find Homophones</button>
+                            <div class="tool-results" id="homophone-results"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>Compound Word Builder</h3>
+                            <input type="text" class="form-input" id="compound-input" placeholder="Enter base word...">
+                            <button class="btn-secondary" id="build-compounds">Build Compounds</button>
+                            <div class="tool-results" id="compound-results"></div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>Synonym Alternatives</h3>
+                            <input type="text" class="form-input" id="synonym-input" placeholder="Enter a word...">
+                            <button class="btn-secondary" id="find-synonyms">Find Alternatives</button>
+                            <div class="tool-results" id="synonym-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Library View -->
+            <div class="view-container hidden" id="library-view">
+                <div class="library-layout">
+                    <div class="library-header">
+                        <h2>My Library</h2>
+                        <button class="btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            New Project
+                        </button>
+                    </div>
+
+                    <div class="library-filters">
+                        <input type="text" class="search-input" placeholder="Search projects...">
+                        <select class="filter-select">
+                            <option>All Projects</option>
+                            <option>Recent</option>
+                            <option>Favorites</option>
+                            <option>Archived</option>
+                        </select>
+                    </div>
+
+                    <div class="library-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3>Untitled Project</h3>
+                                <button class="btn-icon-sm">⋮</button>
+                            </div>
+                            <div class="project-meta">
+                                <span>16 lines • Updated 2h ago</span>
+                            </div>
+                            <div class="project-preview">
+                                Start writing to see your projects here...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"19a393b54aab4d848a888fa7ccc6f857","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
