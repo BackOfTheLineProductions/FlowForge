@@ -27,7 +27,7 @@ class PhoneticEngine {
             'keep it 100', 'stay woke', 'on my grind', 'get this bread',
             'rose from the ashes', 'phoenix rising', 'king/queen of the game',
             'money on my mind', 'cash rules everything', 'mo money mo problems',
-            'abstract metaphor', 'third eye', 'conscious rap', 'woke up like this',
+            'abstract metaphor',  'conscious rap', 'woke up like this',
             'manifest destiny', 'energy', 'vibes', 'aura', 'chakra'
         ];
     }
